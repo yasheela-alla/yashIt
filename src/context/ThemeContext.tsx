@@ -2,8 +2,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ReactNode } from "react";
 import GifComponent from "@/components/Gif";
-import Image from "next/image"; // If using Next.js
-import previewImage from "@/assets/preview.png"; // Update with correct path
+import Image from "next/image";
+import previewImage from "@/public/STOP.jpg"; 
 
 type ThemeContextType = {
   theme: string;
