@@ -6,18 +6,19 @@ import GifComponent from '@/components/Gif';
 type ThemeContextType = {
   theme: string;
   toggleTheme: () => void;
+  isChanging: boolean;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState('dark');
+  
   const [isChanging, setIsChanging] = useState(false);
-  const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-
+    
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
@@ -29,9 +30,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const toggleTheme = () => {
     setIsChanging(true);
-
+    
     setTimeout(() => {
-      setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+      setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
       setIsChanging(false);
     }, 2200);
   };
@@ -39,22 +40,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, isChanging }}>
       {children}
-      <AnimatePresence>{isChanging && <GifComponent />}</AnimatePresence>
-
-      {/* Light Theme Preview Image */}
-      <div
-        className="absolute bottom-16 right-5 z-50 w-40 h-40 bg-black rounded-md shadow-lg"
-        onMouseEnter={() => setShowPreview(true)}
-        onMouseLeave={() => setShowPreview(false)}
-      >
-        {showPreview && (
-          <img
-            src="/STOP.jpg"
-            alt="Light Theme Preview"
-            className="rounded-md"
-          />
-        )}
-      </div>
+      <AnimatePresence>
+        {isChanging && <GifComponent />}
+      </AnimatePresence>
     </ThemeContext.Provider>
   );
 };
