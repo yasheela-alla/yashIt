@@ -5,15 +5,12 @@ import { MorphingText } from './ui/morphing-text'
 import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '@/context/ThemeContext'
-import {
-    useWindowWidth
-  } from '@react-hook/window-size'
+import { useWindowWidth } from '@react-hook/window-size'
 
 const texts = [
-    'Website .',
-    'Native Apps .',
-    'Security Solutions .',
-    'Web Apps .',
+    'CODE .',
+    'SECURE .',
+    'DEPLOY .',
 ]
 
 const ProfileCard = () => {
@@ -23,9 +20,9 @@ const ProfileCard = () => {
 
     const dragProps = {
         drag: onlyWidth > 800 ? true : false,
-        dragElastic:0.7,
-        dragConstraints:{ left: 0, right: 0, top: 0, bottom: 0 },
-        whileDrag:{
+        dragElastic: 0.7,
+        dragConstraints: { left: 0, right: 0, top: 0, bottom: 0 },
+        whileDrag: {
             scale: 1.02,
             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
         }
@@ -70,13 +67,13 @@ const ProfileCard = () => {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <img
-                            src="https://i.pinimg.com/736x/3f/36/e3/3f36e33702614c364c8e92cc0941af02.jpg"
+                            src="https://i.pinimg.com/736x/de/cb/2e/decb2ed4de698354f20b0d3238e9ea66.jpg"
                             alt=""
                             className="w-16 h-16 rounded-full"
                         />
                         <div className={`font-semibold text-lg -translate-y-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <h1>Mandeep.</h1>
-                            <p className={`secf font-light text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>@imdeeep</p>
+                            <h1>Yashhhh.</h1>
+                            <p className={`secf font-light text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>@Ay4sh</p>
                         </div>
                     </div>
                     <div>
@@ -95,7 +92,7 @@ const ProfileCard = () => {
 
                 <div>
                     <div className="flex items-center gap-[6px]">
-                        <p className={`text-[1.2rem] md:text-[1.3rem] font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>I build </p>
+                        <p className={`text-[1.2rem] md:text-[1.3rem] font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>I </p>
                         <div className="relative h-[1.70rem] md:h-[2.12rem]">
                             <MorphingText
                                 texts={texts}
@@ -103,17 +100,12 @@ const ProfileCard = () => {
                             />
                         </div>
                     </div>
-                    <p className={`text-[0.8rem] md:text-[0.9rem]  ${theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'}`}>
-                        Hello , I&apos;m Mandeep a 20 year old developer based
-                        in Indore -India.
+                    <p className={`text-[0.8rem] md:text-[0.9rem] ${theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                        Hello, I'm yasheela a 20 year old web3 enthusiast based in india.
                     </p>
                 </div>
 
                 <div className={`secf justify-between flex items-center ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'}`}>
-                    <div className="text-[0.7rem] hidden md:block">
-                        &quot; Wait... what&apos;s the latest hack <br /> for
-                        centering a div? &quot;
-                    </div>
                     <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] w-full md:w-auto items-end">
                         <div className={`flex items-center gap-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                             <div className={`h-[7px] w-[7px] rounded ${theme === 'dark' ? 'bg-[#56FF02]' : 'bg-[#00FF00]'}`} />{' '}
