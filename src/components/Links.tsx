@@ -1,14 +1,11 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
 import { FaLinkedin } from 'react-icons/fa6'
-import { FaInstagram } from 'react-icons/fa'
+import { FaXTwitter } from "react-icons/fa6"
 import { useTheme } from '@/context/ThemeContext'
-import {
-    useWindowWidth
-  } from '@react-hook/window-size'
+import { useWindowWidth } from '@react-hook/window-size'
 
 const Links = () => {
     const {theme} = useTheme()
@@ -39,27 +36,21 @@ const Links = () => {
                 KS.
             </h1>
             <div className="px-2 space-x-2 md:space-x-1">
-                <Link href="https://github.com/imdeeep" target="_blank">
+                <a href="https://github.com/yasheela-alla" target="_blank" rel="noopener noreferrer">
                     <div className={`border inline-block rounded-lg ${theme=='dark'?"border-zinc-700/50":"border-zinc-400"}  p-3`}>
                         <FaGithub size={35} color={theme=='dark'?'white':'#27272A'} />
                     </div>
-                </Link>
-                <Link
-                    href="https://www.linkedin.com/in/mandeepyadav27/"
-                    target="_blank"
-                >
+                </a>
+                <a href="https://www.linkedin.com/in/alla-yasheela/" target="_blank" rel="noopener noreferrer">
                     <div className={`border inline-block rounded-lg ${theme=='dark'?"border-zinc-700/50":"border-zinc-400"}  p-3`}>
                         <FaLinkedin size={35} color={theme=='dark'?'white':'#27272A'}/>
                     </div>
-                </Link>
-                <Link
-                    href="https://www.instagram.com/mandeepyadav_27/"
-                    target="_blank"
-                >
+                </a>
+                <a href="https://x.com/Ay4sh" target="_blank" rel="noopener noreferrer">
                     <div className={`border inline-block rounded-lg ${theme=='dark'?"border-zinc-700/50":"border-zinc-400"}  p-3`}>
-                        <FaInstagram size={35} color={theme=='dark'?'white':'#27272A'}/>
+                        <FaXTwitter size={35} color={theme=='dark'?'white':'#27272A'}/>
                     </div>
-                </Link>
+                </a>
             </div>
         </motion.div>
     )
