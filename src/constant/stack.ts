@@ -1,15 +1,10 @@
 export const techStacks = {
     backend: [
-        'Node.js',
-        'Express.js',
-        'FastAPI',
-        'Uvicorn',
         'REST API',
         'GraphQL',
     ],
     'db & Services': [
         'MongoDB',
-        'PostgreSQL',
         'Docker',
         'Supabase',
         'Firebase',
@@ -34,7 +29,7 @@ export const techStacks = {
         // 'Zero-Day Exploits'
     ],
     currentLearning: [
-        'Browser Automation',
+        'Blockchain & web3',
         'AI',
         'Machine Learning',
         'Cloud Architecture',
