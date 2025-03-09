@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Dock from './Dock'
-import Link from 'next/link'
 import { FaPlay } from 'react-icons/fa6'
 import axios from 'axios'
 import { useTheme } from '@/context/ThemeContext'
@@ -70,7 +69,7 @@ const DailyStack = () => {
                             {onlyWidth > 800 ? (
                                 <div className="w-40 h-14 overflow-hidden rounded-2xl pointer-events-none">
                                     <img
-                                        src="https://images.pexels.com/photos/10276253/pexels-photo-10276253.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        src="https://i.pinimg.com/736x/a0/8d/97/a08d971b0f2f0599cfd5478947098846.jpg"
                                         alt=""
                                         className="w-full h-full object-cover"
                                     />
@@ -78,18 +77,20 @@ const DailyStack = () => {
                             ) : <Dock />}
                             
                             <div className="flex flex-col md:items-start">
-                                <div className={`${imageSize} music rounded-2xl relative`}>
-                                    <Link href="https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6" target="_blank">
+                                <div 
+                                    className={`${imageSize} relative rounded-2xl overflow-hidden music group`}
+                                >
+                                    <a href="https://open.spotify.com/track/3A4FRzgve9BjfKbvVXRIFO?si=3d1b8fb8f7294c8a" target="_blank" rel="noopener noreferrer">
                                         <div className={`p-3 play border ${theme === 'dark' ? 'bg-white border-zinc-700/40' : 'bg-black border-zinc-300/40'} absolute bottom-2 right-2 inline-block rounded-full`}>
                                             <FaPlay size={20} color={theme === 'dark' ? 'black' : 'white'} />
                                         </div>
-                                    </Link>
+                                    </a>
                                 </div>
                                 <h1 className={`font-semibold text-lg mt-0 ${theme === 'dark' ? 'text-white' : 'text-zinc-800'}`}>
-                                    SWEATER WEATHER
+                                    Sparkle
                                 </h1>
                                 <p className={`text-xs ${theme === 'dark' ? "text-zinc-400" : "text-zinc-600"}`}>
-                                    By: The Neighbourhood
+                                    By: RADWIMPS 
                                 </p>
                             </div>
                         </div>
@@ -114,11 +115,11 @@ const DailyStack = () => {
 
                     <div className="flex flex-col items-center">
                         <p className={`text-center text-[1rem] md:text-[0.8rem] font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-zinc-800'}`}>
-                            &quot; I&apos;ll transform into Leon someday. &quot;
+                            &quot; Give up on your dreams and Die. &quot;
                         </p>
                         <div className={`${imageSize} rounded-2xl overflow-hidden`}>
                             <img
-                                src="https://i.pinimg.com/736x/de/cb/2e/decb2ed4de698354f20b0d3238e9ea66.jpg"
+                                src="https://i.pinimg.com/736x/ab/e1/de/abe1decd2e0169d6a6db12febfc82a77.jpg"
                                 alt=""
                                 className="w-full h-full object-cover pointer-events-none"
                             />
