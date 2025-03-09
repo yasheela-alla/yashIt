@@ -30,8 +30,7 @@ export const techStacks = {
     ],
     currentLearning: [
         'Blockchain & web3',
-        'AI',
         'Machine Learning',
-        'Cloud Architecture',
+        'AWS Cloud',
     ],
 }
