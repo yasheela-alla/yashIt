@@ -67,7 +67,7 @@ const ProfileCard = () => {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <img
-                            src="https://i.pinimg.com/736x/de/cb/2e/decb2ed4de698354f20b0d3238e9ea66.jpg"
+                            src="https://i.pinimg.com/736x/4c/f7/42/4cf74229862193b16c9870b08ea749c0.jpg"
                             alt=""
                             className="w-16 h-16 rounded-full"
                         />
@@ -105,11 +105,11 @@ const ProfileCard = () => {
                     </p>
                 </div>
 
-                <div className={`secf justify-between flex items-center ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'}`}>
-                    <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] w-full md:w-auto items-end">
+                <div className={`secf flex items-end justify-end ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'}`}>
+                    <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] items-end">
                         <div className={`flex items-center gap-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                             <div className={`h-[7px] w-[7px] rounded ${theme === 'dark' ? 'bg-[#56FF02]' : 'bg-[#00FF00]'}`} />{' '}
-                            Available for work
+                            Looking for internships
                         </div>
                         {dateTime}
                     </div>
