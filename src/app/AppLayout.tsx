@@ -5,7 +5,6 @@ import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Lenis from "lenis";
 
-
 export default function AppLayout({ children }: { children: React.ReactNode }): React.JSX.Element {
   useEffect(() => {
     const lenis = new Lenis({
@@ -21,7 +20,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }): 
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen bg-[#111010]">
         <div className="absolute inset-0 z-0">
           <Grid />
         </div>
