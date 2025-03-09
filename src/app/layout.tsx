@@ -3,7 +3,7 @@ import './globals.css'
 import AppLayout from './AppLayout'
 
 export const metadata: Metadata = {
-    title: 'mandeep.',
+    title: 'Yasheela.',
 }
 
 export default function RootLayout({
