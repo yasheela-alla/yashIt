@@ -1,17 +1,18 @@
 import { useTheme } from '@/context/ThemeContext'
 import React from 'react'
 import { LuShipWheel } from 'react-icons/lu'
+import { Link } from 'react-router-dom'
 
 const ProjectCard: React.FC = () => {
     const {theme} = useTheme()
+    
     return (
         <>
             <div className="flex relative">
-                <a href="/projects" onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = '/projects';
-                }}>
-                    <div className="w-[15rem] border border-zinc-700/45 h-[18rem] rounded-xl project cursor-pointer p-3">
+                <Link to="/projects" className="block">
+                    <div 
+                        className="w-[15rem] border border-zinc-700/45 h-[18rem] rounded-xl project cursor-pointer p-3"
+                    >
                         <div className="animate-spin-slow inline-block">
                             <LuShipWheel size={65} color="white" />
                         </div>
@@ -19,7 +20,7 @@ const ProjectCard: React.FC = () => {
                             PROJECTssss
                         </h1>
                     </div>
-                </a>
+                </Link>
             </div>
         </>
     )
