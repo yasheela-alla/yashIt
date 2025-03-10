@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -63,7 +63,7 @@ const Page = () => {
     return (
         <div ref={mainRef} className="relative min-h-screen text-zinc-200">
             <div ref={backButtonRef} className="fixed top-4 md:top-8 left-4 md:left-8 z-50">
-                <Link href="/">
+                <Link to="/">
                     <motion.div 
                         className={`backdrop-blur-sm px-3 md:px-5 py-1 rounded-sm border ${theme === 'dark' ? 'bg-white border-white/20 hover:bg-zinc-200' : 'bg-zinc-800 border-zinc-800 hover:bg-zinc-800/95'}`}
                         whileHover={{ scale: 1.05}}
@@ -140,9 +140,10 @@ const Page = () => {
                                         key={i}
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Link
+                                        <a
                                             href={link.href}
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                             className={`flex items-center gap-2 text-xs md:text-sm transition-colors ${theme === 'dark' ? 'text-zinc-400 hover:text-zinc-200' : 'text-zinc-600 hover:text-zinc-800'}`}
                                         >
                                             {link.type === 'GitHub' ? (
@@ -151,7 +152,7 @@ const Page = () => {
                                                 <ExternalLink size={16} className="md:size-18" />
                                             )}
                                             {link.type}
-                                        </Link>
+                                        </a>
                                     </motion.div>
                                 ))}
                             </div>
