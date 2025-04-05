@@ -1,167 +1,155 @@
-"use client"
-import React, { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { projects } from '@/constant/project'
-import { ExternalLink, Github } from 'lucide-react'
-import { FaArrowLeft } from "react-icons/fa"
-import { useTheme } from '@/context/ThemeContext'
+import Image from "next/image";
+import React from "react";
+import { Timeline } from "@/components/ui/timeline";
 
-gsap.registerPlugin(ScrollTrigger)
-
-const Page = () => {
-    const mainRef = useRef(null)
-    const projectRefs = useRef<(HTMLDivElement | null)[]>([])
-    const titleRef = useRef(null)
-    const backButtonRef = useRef(null)
-    const {theme} = useTheme()
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo(backButtonRef.current,
-                { x: -100, opacity: 0 },
-                { x: 0, opacity: 1, duration: 1, ease: "power3.out" }
-            )
-
-            gsap.fromTo(titleRef.current,
-                { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power3.out" }
-            )
-
-            projectRefs.current.forEach((project) => {
-                gsap.fromTo(project,
-                    { y: 100, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.2,
-                        ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: project,
-                            start: "top bottom-=100",
-                            end: "top center",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                )
-            })
-        }, mainRef)
-
-        return () => ctx.revert()
-    }, [])
-
-    const projectImageHoverEffect = {
-        scale: 1.02,
-        transition: {
-            duration: 0.5,
-            ease: [0.33, 1, 0.68, 1]
-        }
-    }
-
-    return (
-        <div ref={mainRef} className="relative min-h-screen text-zinc-200">
-            <div ref={backButtonRef} className="fixed top-4 md:top-8 left-4 md:left-8 z-50">
-                <Link to="/">
-                    <motion.div 
-                        className={`backdrop-blur-sm px-3 md:px-5 py-1 rounded-sm border ${theme === 'dark' ? 'bg-white border-white/20 hover:bg-zinc-200' : 'bg-zinc-800 border-zinc-800 hover:bg-zinc-800/95'}`}
-                        whileHover={{ scale: 1.05}}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <FaArrowLeft size={20} className={`${theme === 'dark' ? 'text-zinc-800' : 'text-white'} cursor-pointer`} />
-                    </motion.div>
-                </Link>
-            </div>
-
-            <div className="flex flex-col lg:flex-row p-4 mt-12 md:mt-0 md:p-8 lg:p-16">
-                <div className="w-full lg:w-1/2 lg:sticky lg:top-0 h-auto lg:h-screen flex flex-col justify-center mb-8 lg:mb-0">
-                    <div ref={titleRef} className="space-y-2">
-                        <h1 className={`text-5xl md:text-6xl lg:text-8xl ${theme=='dark'?"text-white":"text-zinc-800"} font-bold tracking-wide`}>
-                            PROJECTS
-                        </h1>
-                        <p className={`text-xl md:text-2xl lg:text-3xl italic ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'}`}>
-                            which matters .
-                        </p>
-                    </div>
-                </div>
-
-                <div className="w-full lg:w-1/2 space-y-20 md:space-y-32 lg:space-y-40 py-8 md:py-16 lg:py-32">
-                    {projects.map((project, idx) => (
-                        <div 
-                            key={idx}
-                            ref={el => {
-                                projectRefs.current[idx] = el;
-                            }}
-                            className="space-y-4 md:space-y-6"
-                        >
-                            <motion.div
-                                className="group relative w-full h-[15rem] md:h-[18rem] lg:h-[22rem] overflow-hidden rounded-xl border border-zinc-800 bg-[#111010]"
-                                whileHover={projectImageHoverEffect}
-                            >
-                                <motion.img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 shadow-[inset_0_2px_20px_rgba(255,255,255,0.08)]" />
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </motion.div>
-
-                            <div className="space-y-3 md:space-y-4">
-                                <h2 className={`text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${theme === 'dark' ? 'from-white to-zinc-400' : 'from-zinc-800 to-zinc-600'} text-transparent bg-clip-text`}>
-                                    {project.title}
-                                </h2>
-                                <p className={`text-base md:text-lg leading-relaxed max-w-2xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                                    {project.description}
-                                </p>
-
-                                <div className="flex flex-wrap gap-2 pt-2">
-                                    {project.technologies.map((tech, index) => (
-                                        <motion.span
-                                            key={index}
-                                            className={`relative border rounded-sm backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 text-xs ${theme === 'dark' ? 'bg-[#181616]/80 border-zinc-800 text-zinc-300' : 'bg-zinc-200 border-zinc-400 text-zinc-800'}`}
-                                            whileHover={{
-                                                scale: 1.05,
-                                                backgroundColor: theme === 'dark' ? '#222020' : '#e5e7eb',
-                                                borderColor: theme === 'dark' ? '#71717a' : '#9ca3af',
-                                            }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            {tech}
-                                        </motion.span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="flex gap-4 md:gap-6 pt-2 md:pt-4">
-                                {project.links.map((link, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ scale: 1.05 }}
-                                    >
-                                        <a
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`flex items-center gap-2 text-xs md:text-sm transition-colors ${theme === 'dark' ? 'text-zinc-400 hover:text-zinc-200' : 'text-zinc-600 hover:text-zinc-800'}`}
-                                        >
-                                            {link.type === 'GitHub' ? (
-                                                <Github size={16} className="md:size-18" />
-                                            ) : (
-                                                <ExternalLink size={16} className="md:size-18" />
-                                            )}
-                                            {link.type}
-                                        </a>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+export function TimelineDemo() {
+  const data = [
+    {
+      title: "2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://assets.aceternity.com/templates/startup-1.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/templates/startup-2.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/templates/startup-3.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/templates/startup-4.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
         </div>
-    )
+      ),
+    },
+    {
+      title: "Early 2023",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            I usually run out of copy, but when I see content this big, I try to
+            integrate lorem ipsum.
+          </p>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Lorem ipsum is for people who are too lazy to write copy. But we are
+            not. Here are some more example of beautiful designs I built.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://assets.aceternity.com/pro/hero-sections.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/features-section.png"
+              alt="feature template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/pro/bento-grids.png"
+              alt="bento template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/cards.png"
+              alt="cards template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Changelog",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            Deployed 5 new components on Aceternity today
+          </p>
+          <div className="mb-8">
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Card grid component
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Startup template Aceternity
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Random file upload lol
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Himesh Reshammiya Music CD
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Salman Bhai Fan Club registrations open
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://assets.aceternity.com/pro/hero-sections.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/features-section.png"
+              alt="feature template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/pro/bento-grids.png"
+              alt="bento template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="https://assets.aceternity.com/cards.png"
+              alt="cards template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+  ];
+  return (
+    <div className="w-full">
+      <Timeline data={data} />
+    </div>
+  );
 }
-
-export default Page
