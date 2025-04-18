@@ -1,7 +1,15 @@
 export const techStacks = {
+    frontend: [
+        'HTML',
+        'CSS',
+        'JavaScript',
+        'Tailwind CSS',
+        'shadcn-ui',
+    ]
     backend: [
+        'Node.js',
+        'React.js',
         'REST API',
-        'GraphQL',
     ],
     'db & Services': [
         'MongoDB',

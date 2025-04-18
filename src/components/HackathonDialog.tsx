@@ -56,6 +56,33 @@ const hackathonData = [
             },
         ],
     },
+    {
+        title: 'IWD Women\'s Hackathon',
+        dates: 'April 2025',
+        location: 'Visakhapatnam, India',
+        description: 'Built a Blockchain based Intellectual property protection system.',
+        image: 'https://imgs.search.brave.com/tJanJloOLAaC57AWKuHZ6cFiQvBV7vxnbgf-ISBaD7A/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMTZkMjY2NjIz/MGVlZTc2NmUxOTEx/ZjIwMWZlMDI1YTAx/N2Q1ODM5MmFiMTk0/MWQ3MDJmNDAzMzk1/YTdhMWEwOC9zdHJl/YW1saXQuaW8v',
+        links: [
+            {
+                title: 'GitHub Repository',
+                url: 'https://github.com/yasheela-alla/kageLock-u',
+            },
+        ],
+    },
+    {
+        title: 'Outlier frontend Hackathon',
+        dates: 'April 2025',
+        location: 'Visakhapatnam, India',
+        description: 'Shortlisted for building outstanding frontend applications, with additional freelance opportunities.',
+        image: 'https://imgs.search.brave.com/tJanJloOLAaC57AWKuHZ6cFiQvBV7vxnbgf-ISBaD7A/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMTZkMjY2NjIz/MGVlZTc2NmUxOTEx/ZjIwMWZlMDI1YTAx/N2Q1ODM5MmFiMTk0/MWQ3MDJmNDAzMzk1/YTdhMWEwOC9zdHJl/YW1saXQuaW8v',
+        links: [
+            {
+                title: 'GitHub Repository',
+                url: 'https://github.com/yasheela-alla/vibra',
+            },
+        ],
+    },
+
 ]
 
 

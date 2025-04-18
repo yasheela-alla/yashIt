@@ -155,7 +155,7 @@ export function GridPattern({
 export function Grid() {
     const {theme} = useTheme()
     return (
-        <div className={`fixed inset-0 h-screen w-screen ${theme==='dark'? "bg-[#111010]" : "bg-black/10"} overflow-hidden`}>
+        <div className={`fixed inset-0 h-screen w-screen ${theme==='dark'? "bg-[#111010]" : "bg-white"} overflow-hidden`}>
             <div className="absolute inset-0 transform-gpu">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
                 <GridPattern

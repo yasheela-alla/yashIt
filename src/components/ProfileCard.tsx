@@ -72,7 +72,7 @@ const ProfileCard = () => {
                             className="w-16 h-16 rounded-full"
                         />
                         <div className={`font-semibold text-lg -translate-y-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <h1>Yashhhh.</h1>
+                            <h1>Yasheela Alla</h1>
                             <p className={`secf font-light text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>@Ay4sh</p>
                         </div>
                     </div>

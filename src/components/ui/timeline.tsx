@@ -205,7 +205,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
           }`}>
             I love pushing myself into new stacks, domains—basically anything I have no clue about. My first-ever hackathon? A 24-hour AI/ML with AWS challenge. No clue what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. 
-            Fast forward to my latest ML hackathon—didn’t win, but!!! that past chaos made this one feel like second nature. Every challenge, every sleepless night, every ‘WTF am I doing?’ moment—it all adds up. Keep chasing the next big thing ANON.
+            Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but!!! that past chaos made this one feel like second nature. Every challenge, every sleepless night, every WTF am I doing? moment—it all adds up. Keep chasing the next big thing ANON.
           </p>
         </motion.div>
 
