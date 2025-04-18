@@ -5,7 +5,7 @@ export const techStacks = {
         'JavaScript',
         'Tailwind CSS',
         'shadcn-ui',
-    ]
+    ],
     backend: [
         'Node.js',
         'React.js',
