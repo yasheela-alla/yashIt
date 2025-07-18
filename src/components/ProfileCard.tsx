@@ -3,7 +3,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { MorphingText } from './ui/morphing-text'
 import { useState, useEffect } from 'react'
-import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
 
@@ -15,7 +14,7 @@ const texts = [
 
 const ProfileCard = () => {
     const [dateTime, setDateTime] = useState('')
-    const { theme, toggleTheme } = useTheme()
+    const { theme } = useTheme()
     const onlyWidth = useWindowWidth()
 
     const dragProps = {
@@ -75,18 +74,6 @@ const ProfileCard = () => {
                             <h1>Yasheela Alla</h1>
                             <p className={`secf font-light text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>@Ay4sh</p>
                         </div>
-                    </div>
-                    <div>
-                        <button 
-                            onClick={toggleTheme} 
-                            className={`p-2 -translate-y-4 rounded-full ${theme === 'dark' ? 'bg-[#18181A]' : 'bg-zinc-100'}`}
-                        >
-                            {theme === 'dark' ? (
-                                <Sun className="text-zinc-400" size={20} />
-                            ) : (
-                                <Moon className="text-zinc-600" size={20} />
-                            )}
-                        </button>
                     </div>
                 </div>
 

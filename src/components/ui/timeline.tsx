@@ -18,14 +18,10 @@ interface TimelineEntry {
 }
 
 const PulsingDot = () => {
-  const { theme } = useTheme();
-  
   return (
     <div className="relative">
       <motion.div
-        className={`w-3 h-3 rounded-full ${
-          theme === 'dark' ? 'bg-zinc-400' : 'bg-zinc-600'
-        }`}
+        className="w-3 h-3 rounded-full bg-zinc-400"
         initial={{ scale: 0.8 }}
         animate={{
           scale: [0.8, 1.2, 0.8],
@@ -37,9 +33,7 @@ const PulsingDot = () => {
         }}
       />
       <motion.div
-        className={`absolute inset-0 rounded-full ${
-          theme === 'dark' ? 'bg-zinc-400/30' : 'bg-zinc-600/30'
-        }`}
+        className="absolute inset-0 rounded-full bg-zinc-400/30"
         initial={{ scale: 1, opacity: 0.5 }}
         animate={{
           scale: [1, 2.5, 1],
@@ -56,7 +50,6 @@ const PulsingDot = () => {
 };
 
 const TimelineItem = ({ item }: { item: TimelineEntry }) => {
-  const { theme } = useTheme();
   const itemRef = useRef(null);
   const isInView = useInView(itemRef, { once: true, margin: "-100px" });
 
@@ -100,27 +93,21 @@ const TimelineItem = ({ item }: { item: TimelineEntry }) => {
             <motion.div
               variants={variants}
               custom={1}
-              className={`flex items-center gap-3 text-xs md:text-sm ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
-              }`}
+              className="flex items-center gap-3 text-xs md:text-sm text-neutral-400"
             >
               <span>{item.dates}</span>
             </motion.div>
             <motion.h3
               variants={variants}
               custom={2}
-              className={`text-lg md:text-xl font-semibold ${
-                theme === 'dark' ? 'text-white' : 'text-neutral-900'
-              }`}
+              className="text-lg md:text-xl font-semibold text-white"
             >
               {item.title}
             </motion.h3>
             <motion.p
               variants={variants}
               custom={3}
-              className={`text-xs md:text-sm ${
-                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
-              }`}
+              className="text-xs md:text-sm text-neutral-400"
             >
               {item.location}
             </motion.p>
@@ -130,9 +117,7 @@ const TimelineItem = ({ item }: { item: TimelineEntry }) => {
         <motion.p
           variants={variants}
           custom={4}
-          className={`text-sm md:text-base leading-relaxed mb-4 md:mb-6 ${
-            theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
-          }`}
+          className="text-sm md:text-base leading-relaxed mb-4 md:mb-6 text-neutral-300"
         >
           {item.description}
         </motion.p>
@@ -147,19 +132,15 @@ const TimelineItem = ({ item }: { item: TimelineEntry }) => {
               key={linkIndex}
               whileHover={{
                 scale: 1.05,
-                backgroundColor: theme === 'dark' ? '#222020' : '#f4f4f5',
-                borderColor: theme === 'dark' ? '#71717a' : '#d4d4d8',
+                backgroundColor: '#222020',
+                borderColor: '#71717a',
               }}
               transition={{ duration: 0.2 }}
               whileTap={{ scale: 0.95 }}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex rounded-sm py-1 px-2 items-center text-xs md:text-sm border ${
-                theme === 'dark' 
-                  ? 'bg-[#181616] border-zinc-700 text-zinc-300' 
-                  : 'bg-zinc-100 border-zinc-300 text-zinc-700'
-              }`}
+              className="inline-flex rounded-sm py-1 px-2 items-center text-xs md:text-sm border bg-[#181616] border-zinc-700 text-zinc-300"
             >
               <span>{link.title}</span>
               <motion.svg
@@ -179,14 +160,11 @@ const TimelineItem = ({ item }: { item: TimelineEntry }) => {
 };
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
-  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div 
-      className={`w-full ${
-        theme === 'dark' ? 'bg-[#111010]' : 'bg-zinc-200'
-      }`} 
+      className="w-full bg-[#111010]"
       ref={containerRef}
     >
       <div className="w-5xl mx-auto px-4 md:px-6 py-12 md:py-24">
@@ -196,23 +174,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           transition={{ duration: 0.8 }}
           className="mb-8 md:mb-16"
         >
-          <h1 className={`text-2xl md:text-3xl lg:text-5xl font-bold mb-4 ${
-            theme === 'dark' ? 'text-white' : 'text-zinc-800'
-          }`}>
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 text-white">
             Hackathons, openSource & Workshops
           </h1>
-          <p className={`text-sm md:text-md leading-relaxed ${
-            theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
-          }`}>
+          <p className="text-sm md:text-md leading-relaxed text-zinc-400">
             I love pushing myself into new stacks, domains—basically anything I have no clue about. My first-ever hackathon? A 24-hour AI/ML with AWS challenge. No clue what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. 
             Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but!!! that past chaos made this one feel like second nature. Every challenge, every sleepless night, every WTF am I doing? moment—it all adds up. Keep chasing the next big thing ANON.
           </p>
         </motion.div>
 
         <div className="relative">
-          <div className={`absolute left-0 top-0 bottom-0 w-px ${
-            theme === 'dark' ? 'bg-neutral-800' : 'bg-zinc-400'
-          }`} />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-neutral-800" />
           
           <div className="relative">
             {data.map((item, index) => (

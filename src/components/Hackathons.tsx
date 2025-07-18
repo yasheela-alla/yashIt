@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTheme } from '@/context/ThemeContext'
 import { motion } from 'framer-motion'
 
 interface HackathonsProps {
@@ -8,15 +7,11 @@ interface HackathonsProps {
 }
 
 const Hackathons: React.FC<HackathonsProps> = ({ setDialog }) => {
-    const { theme } = useTheme()
-    
     return (
         <div className="flex relative mt-5">
             <motion.div
                 onClick={() => setDialog(true)}
-                className={`w-[12rem] border ${
-                    theme === 'dark' ? 'border-zinc-700/45' : 'border-zinc-400'
-                } h-[10rem] rounded-xl cursor-pointer p-3 overflow-hidden relative`} 
+                className="w-[12rem] border border-zinc-700/45 h-[10rem] rounded-xl cursor-pointer p-3 overflow-hidden relative"
                 whileHover={{ scale: 1.02 }}
             >
   
@@ -27,14 +22,10 @@ const Hackathons: React.FC<HackathonsProps> = ({ setDialog }) => {
                 />
 
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
-                    <h1 className={`font-bold text-[1.5rem] leading-[2.3rem] uppercase tracking-tight ${
-                        theme === 'dark' ? 'text-white' : 'text-zinc-900'
-                    }`}>
+                    <h1 className="font-bold text-[1.5rem] leading-[2.3rem] uppercase tracking-tight text-white">
                         HACKATHON
                     </h1>
-                    <p className={`text-xs mt-1 ${
-                        theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'
-                    }`}>
+                    <p className="text-xs mt-1 text-zinc-300">
                         & OpenSource.
                     </p>
                 </div>

@@ -2,7 +2,6 @@
 import { useId } from 'react'
 import { cn } from '@/lib/utils'
 import { useState, useEffect } from 'react'
-import { useTheme } from '@/context/ThemeContext'
 
 interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
     width?: number
@@ -26,7 +25,6 @@ export function GridPattern({
     const id = useId()
     const maskId = useId()
     const glowId = useId()
-    const {theme} = useTheme()
 
     // State for animated squares
     const [activeSquares, setActiveSquares] = useState<Array<[number, number]>>(
@@ -84,8 +82,8 @@ export function GridPattern({
     return (
         <svg
             aria-hidden="true"
-            className={cn(`
-                pointer-events-none absolute inset-0 h-full w-full ${theme==='dark'?'stroke-zinc-800/75 fill-gray-400/10' : 'stroke-zinc-400/20 fill-zinc-400'}`,
+            className={cn(
+                'pointer-events-none absolute inset-0 h-full w-full stroke-zinc-800/75 fill-gray-400/10',
                 className
             )}
             {...props}
@@ -153,9 +151,8 @@ export function GridPattern({
 
 // Grid.tsx
 export function Grid() {
-    const {theme} = useTheme()
     return (
-        <div className={`fixed inset-0 h-screen w-screen ${theme==='dark'? "bg-[#111010]" : "bg-white"} overflow-hidden`}>
+        <div className="fixed inset-0 h-screen w-screen bg-[#111010] overflow-hidden">
             <div className="absolute inset-0 transform-gpu">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
                 <GridPattern

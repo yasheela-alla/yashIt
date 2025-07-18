@@ -7,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { projects } from '@/constant/project'
 import { ExternalLink, Github } from 'lucide-react'
 import { FaArrowLeft } from "react-icons/fa"
-import { useTheme } from '@/context/ThemeContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,7 +15,6 @@ const Page = () => {
     const projectRefs = useRef<(HTMLDivElement | null)[]>([])
     const titleRef = useRef(null)
     const backButtonRef = useRef(null)
-    const {theme} = useTheme()
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -65,11 +63,11 @@ const Page = () => {
             <div ref={backButtonRef} className="fixed top-4 md:top-8 left-4 md:left-8 z-50">
                 <Link to="/">
                     <motion.div 
-                        className={`backdrop-blur-sm px-3 md:px-5 py-1 rounded-sm border ${theme === 'dark' ? 'bg-white border-white/20 hover:bg-zinc-200' : 'bg-zinc-800 border-zinc-800 hover:bg-zinc-800/95'}`}
+                        className="backdrop-blur-sm px-3 md:px-5 py-1 rounded-sm border bg-white border-white/20 hover:bg-zinc-200"
                         whileHover={{ scale: 1.05}}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <FaArrowLeft size={20} className={`${theme === 'dark' ? 'text-zinc-800' : 'text-white'} cursor-pointer`} />
+                        <FaArrowLeft size={20} className="text-zinc-800 cursor-pointer" />
                     </motion.div>
                 </Link>
             </div>
@@ -77,10 +75,10 @@ const Page = () => {
             <div className="flex flex-col lg:flex-row p-4 mt-12 md:mt-0 md:p-8 lg:p-16">
                 <div className="w-full lg:w-1/2 lg:sticky lg:top-0 h-auto lg:h-screen flex flex-col justify-center mb-8 lg:mb-0">
                     <div ref={titleRef} className="space-y-2">
-                        <h1 className={`text-5xl md:text-6xl lg:text-8xl ${theme=='dark'?"text-white":"text-zinc-800"} font-bold tracking-wide`}>
+                        <h1 className="text-5xl md:text-6xl lg:text-8xl text-white font-bold tracking-wide">
                             PROJECTS
                         </h1>
-                        <p className={`text-xl md:text-2xl lg:text-3xl italic ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-600'}`}>
+                        <p className="text-xl md:text-2xl lg:text-3xl italic text-zinc-500">
                             which matters .
                         </p>
                     </div>
@@ -109,10 +107,10 @@ const Page = () => {
                             </motion.div>
 
                             <div className="space-y-3 md:space-y-4">
-                                <h2 className={`text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${theme === 'dark' ? 'from-white to-zinc-400' : 'from-zinc-800 to-zinc-600'} text-transparent bg-clip-text`}>
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 text-transparent bg-clip-text">
                                     {project.title}
                                 </h2>
-                                <p className={`text-base md:text-lg leading-relaxed max-w-2xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                                <p className="text-base md:text-lg leading-relaxed max-w-2xl text-zinc-400">
                                     {project.description}
                                 </p>
 
@@ -120,11 +118,11 @@ const Page = () => {
                                     {project.technologies.map((tech, index) => (
                                         <motion.span
                                             key={index}
-                                            className={`relative border rounded-sm backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 text-xs ${theme === 'dark' ? 'bg-[#181616]/80 border-zinc-800 text-zinc-300' : 'bg-zinc-200 border-zinc-400 text-zinc-800'}`}
+                                            className="relative border rounded-sm backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 text-xs bg-[#181616]/80 border-zinc-800 text-zinc-300"
                                             whileHover={{
                                                 scale: 1.05,
-                                                backgroundColor: theme === 'dark' ? '#222020' : '#e5e7eb',
-                                                borderColor: theme === 'dark' ? '#71717a' : '#9ca3af',
+                                                backgroundColor: '#222020',
+                                                borderColor: '#71717a',
                                             }}
                                             transition={{ duration: 0.2 }}
                                         >
@@ -144,7 +142,7 @@ const Page = () => {
                                             href={link.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`flex items-center gap-2 text-xs md:text-sm transition-colors ${theme === 'dark' ? 'text-zinc-400 hover:text-zinc-200' : 'text-zinc-600 hover:text-zinc-800'}`}
+                                            className="flex items-center gap-2 text-xs md:text-sm transition-colors text-zinc-400 hover:text-zinc-200"
                                         >
                                             {link.type === 'GitHub' ? (
                                                 <Github size={16} className="md:size-18" />

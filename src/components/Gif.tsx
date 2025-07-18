@@ -6,7 +6,6 @@ const GifComponent = () => {
   const { isChanging } = useTheme();
   const [animationPhase, setAnimationPhase] = useState<'initial' | 'gif' | 'scale' | 'fly' | 'complete'>('initial');
   const controls = useAnimation();
-  console.log(animationPhase)
 
   useEffect(() => {
     if (isChanging) {

@@ -2,14 +2,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { techStacks } from '@/constant/stack'
-import { useTheme } from '@/context/ThemeContext'
 import {
     useWindowWidth
   } from '@react-hook/window-size'
 
 
 const Stack = () => {
-    const {theme} = useTheme();
     const onlyWidth = useWindowWidth()
 
 
@@ -24,7 +22,7 @@ const Stack = () => {
     }
     return (
         <motion.div
-            className={`relative md:w-[15rem] h-[35rem] select-none cursor-grab active:cursor-grabbing rounded-xl border ${theme === 'dark' ? 'bg-[#111010] border-zinc-800' : 'bg-zinc-200 border-zinc-400'} translate-y-[-0.4rem]`}
+            className="relative md:w-[15rem] h-[35rem] select-none cursor-grab active:cursor-grabbing rounded-xl border bg-[#111010] border-zinc-800 translate-y-[-0.4rem]"
             {...dragProps}
             transition={{
                 type: 'spring',
@@ -35,7 +33,7 @@ const Stack = () => {
         >
             <div className="absolute inset-0 rounded-xl shadow-[inset_0_2px_20px_rgba(255,255,255,0.08)]" />
 
-            <div className={`text-5xl font-bold border-b-4 pb-2 p-4 relative ${theme === 'dark' ? 'text-white border-zinc-300' : 'text-zinc-800 border-zinc-800'}`}>
+            <div className="text-5xl font-bold border-b-4 pb-2 p-4 relative text-white border-zinc-300">
                 <h1 className="text-4xl pb-2">{'{ }'}</h1>
                 <h1>TECH</h1>
                 <h1>STACK</h1>
@@ -46,7 +44,7 @@ const Stack = () => {
                     {Object.entries(techStacks).map(
                         ([category, technologies], idx) => (
                             <div key={idx} className="space-y-2">
-                                <h1 className={`${theme=='dark'?'text-white':'text-zinc-800'} text-sm`}>
+                                <h1 className="text-white text-sm">
                                     {category.charAt(0).toUpperCase() +
                                         category
                                             .slice(1)
@@ -57,7 +55,7 @@ const Stack = () => {
                                     {technologies.map((tech, index) => (
                                         <motion.span
                                             key={index}
-                                            className={`relative border border-zinc-800 rounded-sm bg-[#181616] px-2  text-xs text-zinc-300`}
+                                            className="relative border border-zinc-800 rounded-sm bg-[#181616] px-2 text-xs text-zinc-300"
                                             whileHover={{
                                                 scale: 1.05,
                                                 backgroundColor: '#222020',

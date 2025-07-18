@@ -1,11 +1,8 @@
-import { useTheme } from '@/context/ThemeContext'
 import React from 'react'
 import { LuShipWheel } from 'react-icons/lu'
 import { Link } from 'react-router-dom'
 
 const ProjectCard: React.FC = () => {
-    const {theme} = useTheme()
-    
     return (
         <>
             <div className="flex relative">

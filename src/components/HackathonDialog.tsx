@@ -108,25 +108,15 @@ const HackathonDialog: React.FC<HackathonDialogProps> = ({ isOpen, onClose }) =>
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.95, opacity: 0 }}
                         className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg ${
-                            theme === 'dark'
-                                ? 'bg-[#111010] border-zinc-800'
-                                : 'bg-zinc-100 border-zinc-300'
+                            'bg-[#111010] border-zinc-800'
                         } border shadow-xl`}
                     >
                         <button
                             onClick={onClose}
-                            className={`absolute top-4 right-4 p-2 rounded-full ${
-                                theme === 'dark'
-                                    ? 'hover:bg-zinc-800'
-                                    : 'hover:bg-zinc-200'
-                            } transition-colors`}
+                            className="absolute top-4 right-4 p-2 rounded-full hover:bg-zinc-800 transition-colors"
                         >
                             <X
-                                className={
-                                    theme === 'dark'
-                                        ? 'text-zinc-400'
-                                        : 'text-zinc-600'
-                                }
+                                className="text-zinc-400"
                             />
                         </button>
 

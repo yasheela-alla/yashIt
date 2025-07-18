@@ -81,15 +81,15 @@ const DailyStack = () => {
                                     className={`${imageSize} relative rounded-2xl overflow-hidden music group`}
                                 >
                                     <a href="https://open.spotify.com/track/3A4FRzgve9BjfKbvVXRIFO?si=3d1b8fb8f7294c8a" target="_blank" rel="noopener noreferrer">
-                                        <div className={`p-3 play border ${theme === 'dark' ? 'bg-white border-zinc-700/40' : 'bg-black border-zinc-300/40'} absolute bottom-2 right-2 inline-block rounded-full`}>
-                                            <FaPlay size={20} color={theme === 'dark' ? 'black' : 'white'} />
+                                        <div className="p-3 play border bg-white border-zinc-700/40 absolute bottom-2 right-2 inline-block rounded-full">
+                                            <FaPlay size={20} color="black" />
                                         </div>
                                     </a>
                                 </div>
-                                <h1 className={`font-semibold text-lg mt-0 ${theme === 'dark' ? 'text-white' : 'text-zinc-800'}`}>
+                                <h1 className="font-semibold text-lg mt-0 text-white">
                                     Sparkle
                                 </h1>
-                                <p className={`text-xs ${theme === 'dark' ? "text-zinc-400" : "text-zinc-600"}`}>
+                                <p className="text-xs text-zinc-400">
                                     By: RADWIMPS 
                                 </p>
                             </div>
@@ -108,13 +108,13 @@ const DailyStack = () => {
                                 />
                             </div>
                         )}
-                        <p className={`text-xs text-end mt-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                            from NASA: <span className={theme === 'dark' ? 'text-white' : 'text-zinc-800'}>{data.date}</span>
+                        <p className="text-xs text-end mt-1 text-zinc-400">
+                            from NASA: <span className="text-white">{data.date}</span>
                         </p>
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <p className={`text-center text-[1rem] md:text-[0.8rem] font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-zinc-800'}`}>
+                        <p className="text-center text-[1rem] md:text-[0.8rem] font-bold mb-2 text-white">
                             &quot; Give up on your dreams and Die. &quot;
                         </p>
                         <div className={`${imageSize} rounded-2xl overflow-hidden`}>

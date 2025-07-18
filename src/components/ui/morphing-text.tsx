@@ -1,6 +1,5 @@
 'use client'
 import { useCallback, useEffect, useRef } from 'react'
-import { useTheme } from '@/context/ThemeContext'
 
 import { cn } from '@/lib/utils'
 
@@ -132,12 +131,10 @@ const SvgFilters: React.FC = () => (
 )
 
 export const MorphingText: React.FC<MorphingTextProps> = ({ texts, className }) => {
-    const { theme } = useTheme();
-  
     return (
       <div
         className={cn(
-          `font-sans font-bold ${theme === 'dark' ? "text-white" : "text-black"} [filter:url(#threshold)_blur(0.6px)] text-[1.1rem] md:text-[1.3rem]`,
+          'font-sans font-bold text-white [filter:url(#threshold)_blur(0.6px)] text-[1.1rem] md:text-[1.3rem]',
           className
         )}
       >
