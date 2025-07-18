@@ -7,12 +7,6 @@ import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
 
 const texts = [
-    'BUILD .',
-    'SECURE .',
-    'DEPLOY .',
-]
-
-const texts = [
     'CODE .',
     'SECURE .',
     'DEPLOY .',
