@@ -8,25 +8,10 @@ import { useWindowWidth } from '@react-hook/window-size'
 
 const Links = () => {
     const onlyWidth = useWindowWidth()
-    
-    const dragProps = {
-        drag: onlyWidth > 800 ? true : false,
-        dragElastic: 0.7,
-        dragConstraints: { left: 0, right: 0, top: 0, bottom: 0 },
-        whileDrag: {
-            scale: 1.02,
-        }
-    }
 
     return (
         <motion.div
-            className="relative md:w-[15rem] md:h-[10rem] cursor-default lg:cursor-grab active:lg:cursor-grabbing rounded-xl md:pt-4 overflow-hidden"
-            {...dragProps}
-            transition={{
-                type: 'spring',
-                damping: 20,
-                stiffness: 300,
-            }}
+            className="relative md:w-[15rem] md:h-[10rem] rounded-xl md:pt-4 overflow-hidden"
         >
             <h1 className="text-4xl px-2 tracking-wide font-bold inline-block leading-none text-white hidden lg:block">
                 LIN

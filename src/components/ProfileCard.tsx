@@ -15,17 +15,6 @@ const texts = [
 const ProfileCard = () => {
     const [dateTime, setDateTime] = useState('')
     const { theme } = useTheme()
-    const onlyWidth = useWindowWidth()
-
-    const dragProps = {
-        drag: onlyWidth > 800 ? true : false,
-        dragElastic: 0.7,
-        dragConstraints: { left: 0, right: 0, top: 0, bottom: 0 },
-        whileDrag: {
-            scale: 1.02,
-            boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-        }
-    }
 
     useEffect(() => {
         const updateDateTime = () => {
@@ -50,15 +39,9 @@ const ProfileCard = () => {
 
     return (
         <motion.div
-            className={`relative py-8 px-5 max-w-[30rem] cursor-grab active:cursor-grabbing rounded-xl 
+            className={`relative py-8 px-5 max-w-[30rem] rounded-xl 
             ${theme === 'dark' ? 'bg-[#111010] border-zinc-800' : 'bg-zinc-200 border-zinc-400'} 
             border overflow-hidden z-[10] select-none`}
-            {...dragProps}
-            transition={{
-                type: 'spring',
-                damping: 20,
-                stiffness: 300,
-            }}
         >
             <div className={`absolute inset-0 rounded-xl ${theme === 'dark' ? 'shadow-[inset_0_2px_20px_rgba(255,255,255,0.08)]' : 'shadow-[inset_0_2px_20px_rgba(0,0,0,0.05)]'}`} />
 

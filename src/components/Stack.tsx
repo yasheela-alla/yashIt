@@ -9,26 +9,9 @@ import {
 
 const Stack = () => {
     const onlyWidth = useWindowWidth()
-
-
-    const dragProps = {
-        drag: onlyWidth > 800 ? true : false,
-        dragElastic:0.7,
-        dragConstraints:{ left: 0, right: 0, top: 0, bottom: 0 },
-        whileDrag:{
-            scale: 1.02,
-            boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-        }
-    }
     return (
         <motion.div
-            className="relative md:w-[15rem] h-[35rem] select-none cursor-grab active:cursor-grabbing rounded-xl border bg-[#111010] border-zinc-800 translate-y-[-0.4rem]"
-            {...dragProps}
-            transition={{
-                type: 'spring',
-                damping: 20,
-                stiffness: 300, 
-            }}
+            className="relative md:w-[15rem] h-[35rem] select-none rounded-xl border bg-[#111010] border-zinc-800 translate-y-[-0.4rem]"
             style={{ touchAction: 'none' }}
         >
             <div className="absolute inset-0 rounded-xl shadow-[inset_0_2px_20px_rgba(255,255,255,0.08)]" />

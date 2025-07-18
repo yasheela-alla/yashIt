@@ -17,15 +17,6 @@ const DailyStack = () => {
     const {theme} = useTheme()
     const onlyWidth = useWindowWidth()
 
-    const dragProps = {
-        drag: onlyWidth > 800 ? true : false,
-        dragElastic: 0.7,
-        dragConstraints: { left: 0, right: 0, top: 0, bottom: 0 },
-        whileDrag: {
-            scale: 1.02,
-        }
-    }
-
     useEffect(() => {
         const nasaAPI = async () => {
             try {
@@ -45,13 +36,7 @@ const DailyStack = () => {
     return (
         <>
         <motion.div
-            className="relative w-full md:w-[30rem] h-auto p-2 cursor-grab active:cursor-grabbing overflow-hidden select-none border-t border-b py-5 md:py-0 md:border-none mt-10 md:mt-0"
-            {...dragProps}
-            transition={{
-                type: 'spring',
-                damping: 20,
-                stiffness: 300,
-            }}
+            className="relative w-full md:w-[30rem] h-auto p-2 overflow-hidden select-none border-t border-b py-5 md:py-0 md:border-none mt-10 md:mt-0"
         >
             <div className="flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-y-0 lg:space-x-3">
                 {onlyWidth > 800 ? <Dock /> : null}
