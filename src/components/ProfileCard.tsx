@@ -7,6 +7,12 @@ import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
 
 const texts = [
+    'BUILD .',
+    'SECURE .',
+    'DEPLOY .',
+]
+
+const texts = [
     'CODE .',
     'SECURE .',
     'DEPLOY .',
@@ -55,7 +61,7 @@ const ProfileCard = () => {
                         />
                         <div className={`font-semibold text-lg -translate-y-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                             <h1>Yasheela Alla</h1>
-                            <p className={`secf font-light text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>@Ay4sh</p>
+                            <p className="secf font-light text-sm text-zinc-400">yasheela435@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +77,7 @@ const ProfileCard = () => {
                         </div>
                     </div>
                     <p className={`text-[0.8rem] md:text-[0.9rem] ${theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'}`}>
-                        Hello, I'm yasheela a 20 year old web3 enthusiast based in india.
+                        B.Tech in Electronics at Vignan's Institute of Information Technology. Full-stack developer with expertise in AI/ML, blockchain, and cybersecurity.
                     </p>
                 </div>
 
@@ -79,7 +85,7 @@ const ProfileCard = () => {
                     <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] items-end">
                         <div className={`flex items-center gap-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                             <div className={`h-[7px] w-[7px] rounded ${theme === 'dark' ? 'bg-[#56FF02]' : 'bg-[#00FF00]'}`} />{' '}
-                            Looking for internships
+                            Available for opportunities
                         </div>
                         {dateTime}
                     </div>

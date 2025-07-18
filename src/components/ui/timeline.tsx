@@ -175,11 +175,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           className="mb-8 md:mb-16"
         >
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 text-white">
-            Hackathons, openSource & Workshops
+            Experience & Achievements
           </h1>
           <p className="text-sm md:text-md leading-relaxed text-zinc-400">
-            I love pushing myself into new stacks, domains—basically anything I have no clue about. My first-ever hackathon? A 24-hour AI/ML with AWS challenge. No clue what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. 
-            Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but I jumped in headfirst and walked away with a ton of knowledge. Fast forward to my latest ML hackathon—didnt even know what I was doing, but!!! that past chaos made this one feel like second nature. Every challenge, every sleepless night, every WTF am I doing? moment—it all adds up. Keep chasing the next big thing ANON.
+            From hackathons to open source contributions, I've been actively building and learning. Currently pursuing B.Tech in Electronics while working on full-stack development, blockchain projects, and cybersecurity solutions. Each challenge has been a stepping stone to grow my technical expertise and problem-solving skills.
           </p>
         </motion.div>
 

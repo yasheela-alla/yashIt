@@ -79,7 +79,7 @@ const Page = () => {
                             PROJECTS
                         </h1>
                         <p className="text-xl md:text-2xl lg:text-3xl italic text-zinc-500">
-                            which matters .
+                            that solve problems .
                         </p>
                     </div>
                 </div>
