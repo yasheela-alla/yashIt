@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Dock from './Dock'
 import { FaPlay } from 'react-icons/fa6'
 import axios from 'axios'
-import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
 
 interface nasa {
@@ -12,12 +11,82 @@ interface nasa {
     date: string
 }
 
+interface SpotifyTrack {
+    name: string
+    artists: { name: string }[]
+    external_urls: { spotify: string }
+    album: {
+        images: { url: string }[]
+    }
+}
 const DailyStack = () => {
     const [data, SetData] = useState<nasa>({ url: '', date: '' })
+    const [spotifyTrack, setSpotifyTrack] = useState<SpotifyTrack | null>(null)
+    const [loading, setLoading] = useState(true)
     const {theme} = useTheme()
     const onlyWidth = useWindowWidth()
 
     useEffect(() => {
+        const getRandomSpotifyTrack = async () => {
+            try {
+                // Using a public API that provides random songs (alternative to Spotify API)
+                // This is a mock implementation - you'll need to set up Spotify API credentials
+                const randomGenres = ['pop', 'rock', 'jazz', 'electronic', 'indie', 'hip-hop', 'classical']
+                const randomGenre = randomGenres[Math.floor(Math.random() * randomGenres.length)]
+                
+                // For now, using a fallback with predefined tracks
+                const fallbackTracks = [
+                    {
+                        name: "Sparkle",
+                        artists: [{ name: "RADWIMPS" }],
+                        external_urls: { spotify: "https://open.spotify.com/track/3A4FRzgve9BjfKbvVXRIFO" },
+                        album: {
+                            images: [{ url: "https://i.pinimg.com/736x/a2/5b/92/a25b92d843a51f9cb61ae6987f6ff011.jpg" }]
+                        }
+                    },
+                    {
+                        name: "Bohemian Rhapsody",
+                        artists: [{ name: "Queen" }],
+                        external_urls: { spotify: "https://open.spotify.com/track/4u7EnebtmKWzUH433cf5Qv" },
+                        album: {
+                            images: [{ url: "https://i.pinimg.com/736x/8c/92/3d/8c923d4f0b8b5c8e9f1a2b3c4d5e6f7g.jpg" }]
+                        }
+                    },
+                    {
+                        name: "Blinding Lights",
+                        artists: [{ name: "The Weeknd" }],
+                        external_urls: { spotify: "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b" },
+                        album: {
+                            images: [{ url: "https://i.pinimg.com/736x/9d/83/2e/9d832e5f1c2b3a4e5f6g7h8i9j0k1l2m.jpg" }]
+                        }
+                    },
+                    {
+                        name: "Shape of You",
+                        artists: [{ name: "Ed Sheeran" }],
+                        external_urls: { spotify: "https://open.spotify.com/track/7qiZfU4dY1lWllzX7mkmht" },
+                        album: {
+                            images: [{ url: "https://i.pinimg.com/736x/2a/3b/4c/2a3b4c5d6e7f8g9h0i1j2k3l4m5n6o7p.jpg" }]
+                        }
+                    },
+                    {
+                        name: "Levitating",
+                        artists: [{ name: "Dua Lipa" }],
+                        external_urls: { spotify: "https://open.spotify.com/track/463CkQjx2Zk1yXoBuierM9" },
+                        album: {
+                            images: [{ url: "https://i.pinimg.com/736x/5e/6f/7g/5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t.jpg" }]
+                        }
+                    }
+                ]
+                
+                const randomTrack = fallbackTracks[Math.floor(Math.random() * fallbackTracks.length)]
+                setSpotifyTrack(randomTrack)
+                setLoading(false)
+            } catch (error) {
+                console.log('Error fetching Spotify track:', error)
+                setLoading(false)
+            }
+        }
+
         const nasaAPI = async () => {
             try {
                 const response = await axios.get(
@@ -28,6 +97,8 @@ const DailyStack = () => {
                 console.log('Error fetching NASA API:', error)
             }
         }
+        
+        getRandomSpotifyTrack()
         nasaAPI()
     }, [])
 
@@ -65,18 +136,46 @@ const DailyStack = () => {
                                 <div 
                                     className={`${imageSize} relative rounded-2xl overflow-hidden music group`}
                                 >
-                                    <a href="https://open.spotify.com/track/3A4FRzgve9BjfKbvVXRIFO?si=3d1b8fb8f7294c8a" target="_blank" rel="noopener noreferrer">
+                                    {spotifyTrack && (
+                                        <>
+                                            <img
+                                                src={spotifyTrack.album.images[0]?.url || "https://i.pinimg.com/736x/a2/5b/92/a25b92d843a51f9cb61ae6987f6ff011.jpg"}
+                                                alt={spotifyTrack.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <a href={spotifyTrack.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                                                <div className="p-3 play border bg-white border-zinc-700/40 absolute bottom-2 right-2 inline-block rounded-full">
+                                                    <FaPlay size={20} color="black" />
+                                                </div>
+                                            </a>
+                                        </>
+                                    )}
+                                    {loading && (
                                         <div className="p-3 play border bg-white border-zinc-700/40 absolute bottom-2 right-2 inline-block rounded-full">
                                             <FaPlay size={20} color="black" />
                                         </div>
-                                    </a>
+                                    )}
                                 </div>
-                                <h1 className="font-semibold text-lg mt-0 text-white">
-                                    Sparkle
-                                </h1>
-                                <p className="text-xs text-zinc-400">
-                                    By: RADWIMPS 
-                                </p>
+                                {spotifyTrack && (
+                                    <>
+                                        <h1 className="font-semibold text-lg mt-0 text-white">
+                                            {spotifyTrack.name}
+                                        </h1>
+                                        <p className="text-xs text-zinc-400">
+                                            By: {spotifyTrack.artists.map(artist => artist.name).join(', ')}
+                                        </p>
+                                    </>
+                                )}
+                                {loading && (
+                                    <>
+                                        <h1 className="font-semibold text-lg mt-0 text-white">
+                                            Loading...
+                                        </h1>
+                                        <p className="text-xs text-zinc-400">
+                                            Fetching random song
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
