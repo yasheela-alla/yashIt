@@ -6,14 +6,24 @@ import { FaPlay } from 'react-icons/fa6'
 import axios from 'axios'
 import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
+import { spotifySongs } from '@/constant/songs'
 
 interface nasa {
     url: string
     date: string
 }
 
+interface Song {
+    name: string
+    artist: string
+    spotifyUrl: string
+    image: string
+    genre: string
+}
+
 const DailyStack = () => {
     const [data, SetData] = useState<nasa>({ url: '', date: '' })
+    const [currentSong, setCurrentSong] = useState<Song>(spotifySongs[1]) // Start with Sparkle
     const {theme} = useTheme()
     const onlyWidth = useWindowWidth()
 
@@ -29,6 +39,29 @@ const DailyStack = () => {
             }
         }
         nasaAPI()
+    }, [])
+
+    useEffect(() => {
+        // Function to get a random song
+        const getRandomSong = () => {
+            const randomIndex = Math.floor(Math.random() * spotifySongs.length)
+            return spotifySongs[randomIndex]
+        }
+
+        // Set initial random song after component mounts
+        const initialTimeout = setTimeout(() => {
+            setCurrentSong(getRandomSong())
+        }, 2000) // 2 seconds after mount
+
+        // Change song every 30 seconds (similar to NASA API timing)
+        const songInterval = setInterval(() => {
+            setCurrentSong(getRandomSong())
+        }, 30000) // 30 seconds
+
+        return () => {
+            clearTimeout(initialTimeout)
+            clearInterval(songInterval)
+        }
     }, [])
 
     const imageSize = onlyWidth > 800 ? 'w-40 h-40' : 'w-[18rem] h-[18rem]'
@@ -63,19 +96,29 @@ const DailyStack = () => {
                             
                             <div className="flex flex-col md:items-start">
                                 <div 
-                                    className={`${imageSize} relative rounded-2xl overflow-hidden music group`}
+                                    className={`${imageSize} relative rounded-2xl overflow-hidden group`}
+                                    style={{
+                                        backgroundImage: `url(${currentSong.image})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        backgroundRepeat: 'no-repeat',
+                                        transition: 'all 0.3s ease-in-out'
+                                    }}
                                 >
-                                    <a href="https://open.spotify.com/track/3A4FRzgve9BjfKbvVXRIFO?si=3d1b8fb8f7294c8a" target="_blank" rel="noopener noreferrer">
-                                        <div className="p-3 play border bg-white border-zinc-700/40 absolute bottom-2 right-2 inline-block rounded-full">
+                                    <a href={currentSong.spotifyUrl} target="_blank" rel="noopener noreferrer">
+                                        <div className="p-3 border bg-white border-zinc-700/40 absolute bottom-2 right-2 inline-block rounded-full transform scale-0 group-hover:scale-100 transition-all duration-300 ease-in-out">
                                             <FaPlay size={20} color="black" />
                                         </div>
                                     </a>
                                 </div>
                                 <h1 className="font-semibold text-lg mt-0 text-white">
-                                    Sparkle
+                                    {currentSong.name}
                                 </h1>
                                 <p className="text-xs text-zinc-400">
-                                    By: RADWIMPS 
+                                    By: {currentSong.artist}
+                                </p>
+                                <p className="text-xs text-zinc-500">
+                                    {currentSong.genre}
                                 </p>
                             </div>
                         </div>
