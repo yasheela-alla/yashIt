@@ -152,6 +152,7 @@ const DailyStack = () => {
                     </div>
                 </div>
             </div>
+        </motion.div>
         </>
     )
 }
