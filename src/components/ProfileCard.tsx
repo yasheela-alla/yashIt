@@ -79,7 +79,7 @@ const ProfileCard = () => {
                     <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] items-end">
                         <div className={`flex items-center gap-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                             <div className={`h-[7px] w-[7px] rounded ${theme === 'dark' ? 'bg-[#56FF02]' : 'bg-[#00FF00]'}`} />{' '}
-                            Available for opportunities
+                            Open for work!
                         </div>
                         {dateTime}
                     </div>
