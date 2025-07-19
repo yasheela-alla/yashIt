@@ -120,6 +120,9 @@ const DailyStack = () => {
                                 <p className="text-xs text-zinc-500">
                                     {currentSong.genre}
                                 </p>
+                                <p className="text-xs text-zinc-400 mt-2 italic">
+                                    "Give up on your dreams and Die."
+                                </p>
                             </div>
                         </div>
                     </div>
