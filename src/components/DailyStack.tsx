@@ -155,8 +155,6 @@ const DailyStack = () => {
                     </div>
                 </div>
             </div>
-        </motion.div>
-        <p className='text-zinc-400 font-bold text-end p-2 md:visible'>Sayonara.</p>
         </>
     )
 }
