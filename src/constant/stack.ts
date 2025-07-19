@@ -40,9 +40,7 @@ export const techStacks = {
         'REST APIs',
     ],
     currentLearning: [
-        'Blockchain Development',
+        'web3/Blockchain',
         'Machine Learning',
-        'Cybersecurity',
-        'Microcontroller Programming',
     ],
 }
