@@ -142,9 +142,6 @@ const DailyStack = () => {
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <p className="text-center text-[1rem] md:text-[0.8rem] font-bold mb-2 text-white">
-                            &quot; Give up on your dreams and Die. &quot;
-                        </p>
                         <div className={`${imageSize} rounded-2xl overflow-hidden`}>
                             <img
                                 src="https://i.pinimg.com/736x/ab/e1/de/abe1decd2e0169d6a6db12febfc82a77.jpg"
