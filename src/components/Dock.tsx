@@ -15,8 +15,8 @@ const Dock = () => {
             alt: 'Git Icon',
         },
         {
-            src: 'https://img.icons8.com/?size=512&id=iGqse5s20iex&format=png',
-            alt: 'Another Icon',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png',
+            alt: 'Notion Icon',
         },
         {
             src: 'https://miro.medium.com/v2/resize:fit:552/1*5J7PQMf9-Ht4P10rV1_lFw.png',
