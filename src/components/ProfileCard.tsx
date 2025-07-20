@@ -71,7 +71,7 @@ const ProfileCard = () => {
                         </div>
                     </div>
                     <p className={`text-[0.8rem] md:text-[0.9rem] ${theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'}`}>
-                        B.Tech in Electronics at Vignan's Institute of Information Technology. Full-stack developer with expertise in AI/ML, blockchain, and cybersecurity.
+                        Hello , I'm Yasheela a 20 year old developer based in Vizag - India.
                     </p>
                 </div>
 
