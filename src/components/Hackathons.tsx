@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '@/context/ThemeContext'
 
 interface HackathonsProps {
     setDialog: (value: boolean) => void
@@ -7,11 +8,15 @@ interface HackathonsProps {
 }
 
 const Hackathons: React.FC<HackathonsProps> = ({ setDialog }) => {
+    const { theme } = useTheme()
+    
     return (
         <div className="flex relative mt-5">
             <motion.div
                 onClick={() => setDialog(true)}
-                className="w-[12rem] border border-zinc-700/45 h-[10rem] rounded-xl cursor-pointer p-3 overflow-hidden relative"
+                className={`w-[12rem] border h-[10rem] rounded-xl cursor-pointer p-3 overflow-hidden relative ${
+                    theme === 'dark' ? 'border-zinc-700/45' : 'border-zinc-300/45'
+                }`}
                 whileHover={{ scale: 1.02 }}
             >
   
@@ -22,10 +27,14 @@ const Hackathons: React.FC<HackathonsProps> = ({ setDialog }) => {
                 />
 
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
-                    <h1 className="font-bold text-[1.5rem] leading-[2.3rem] uppercase tracking-tight text-white">
+                    <h1 className={`font-bold text-[1.5rem] leading-[2.3rem] uppercase tracking-tight ${
+                        theme === 'dark' ? 'text-white' : 'text-white'
+                    }`}>
                         HACKATHON
                     </h1>
-                    <p className="text-xs mt-1 text-zinc-300">
+                    <p className={`text-xs mt-1 ${
+                        theme === 'dark' ? 'text-zinc-300' : 'text-zinc-200'
+                    }`}>
                         & OpenSource.
                     </p>
                 </div>

@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTheme } from '@/context/ThemeContext'
 
 const Dock = () => {
+    const { theme } = useTheme()
+    
     const icons = [
         {
             src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png',
@@ -29,11 +32,15 @@ const Dock = () => {
     ]
 
     return (
-        <div className="px-5 lg:px-2 py-2 mt-3 md:mt-0 space-x-2 lg:space-x-0 lg:py-8 rounded-2xl md:rounded-3xl border border-zinc-700/50 w-auto lg:w-20 space-y-0 lg:space-y-2 inline-flex flex-row lg:flex-col items-center">
+        <div className={`px-5 lg:px-2 py-2 mt-3 md:mt-0 space-x-2 lg:space-x-0 lg:py-8 rounded-2xl md:rounded-3xl border w-auto lg:w-20 space-y-0 lg:space-y-2 inline-flex flex-row lg:flex-col items-center ${
+            theme === 'dark' ? 'border-zinc-700/50' : 'border-zinc-300/50'
+        }`}>
             {icons.map((icon, index) => (
                 <div
                     key={index}
-                    className="inline-block p-2 icon rounded-md"
+                    className={`inline-block p-2 rounded-md ${
+                        theme === 'dark' ? 'icon' : 'dicon'
+                    }`}
                 >
                     <img src={icon.src} className="w-5 h-5 md:w-8 md:h-8" alt={icon.alt} />
                 </div>

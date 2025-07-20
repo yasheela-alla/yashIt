@@ -20,7 +20,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }): 
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-[#111010]">
+      <div className={`relative min-h-screen transition-colors duration-300`}>
         <div className="absolute inset-0 z-0">
           <Grid />
         </div>

@@ -5,6 +5,7 @@ import { MorphingText } from './ui/morphing-text'
 import { useState, useEffect } from 'react'
 import { useTheme } from '@/context/ThemeContext'
 import { useWindowWidth } from '@react-hook/window-size'
+import { Sun, Moon } from 'lucide-react'
 
 const texts = [
     'CODE .',
@@ -14,7 +15,7 @@ const texts = [
 
 const ProfileCard = () => {
     const [dateTime, setDateTime] = useState('')
-    const { theme } = useTheme()
+    const { theme, toggleTheme } = useTheme()
 
     useEffect(() => {
         const updateDateTime = () => {
@@ -44,6 +45,24 @@ const ProfileCard = () => {
             border overflow-hidden z-[10] select-none`}
         >
             <div className={`absolute inset-0 rounded-xl ${theme === 'dark' ? 'shadow-[inset_0_2px_20px_rgba(255,255,255,0.08)]' : 'shadow-[inset_0_2px_20px_rgba(0,0,0,0.05)]'}`} />
+
+            {/* Theme Toggle Button */}
+            <motion.button
+                onClick={toggleTheme}
+                className={`absolute top-4 right-4 p-2 rounded-full transition-all duration-300 ${
+                    theme === 'dark' 
+                        ? 'bg-zinc-800 hover:bg-zinc-700 text-yellow-400' 
+                        : 'bg-zinc-200 hover:bg-zinc-300 text-orange-500'
+                }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                {theme === 'dark' ? (
+                    <Sun size={16} />
+                ) : (
+                    <Moon size={16} />
+                )}
+            </motion.button>
 
             <div className="flex flex-col flex-shrink gap-6">
                 <div className="flex items-center justify-between">
