@@ -24,14 +24,6 @@ const Links = () => {
                         <FaGithub size={35} color="white" />
                     </div>
                 </a>
-                <a href="https://www.naukri.com/code360/profile/00ee445b-4551-4cb4-ae8a-39d0dd6cbf30" target="_blank" rel="noopener noreferrer">
-                    <div className="border inline-block rounded-lg border-zinc-700/50 p-3">
-                        <svg width="35" height="35" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                            <path d="M8 11h8v2H8v-2zm0-3h8v2H8V8zm0 6h5v2H8v-2z" fill="#1a1a1a"/>
-                        </svg>
-                    </div>
-                </a>
                 <a href="https://www.linkedin.com/in/alla-yasheela/" target="_blank" rel="noopener noreferrer">
                     <div className="border inline-block rounded-lg border-zinc-700/50 p-3">
                         <FaLinkedin size={35} color="white" />
