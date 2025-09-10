@@ -8,10 +8,9 @@ import { useWindowWidth } from '@react-hook/window-size'
 import { Sun, Moon } from 'lucide-react'
 
 const texts = [
-    'BUILD .',
-    'AUTOMATE .',
+    'CODE .',
+    'SECURE .',
     'DEPLOY .',
-    'SCALE .',
 ]
 
 const ProfileCard = () => {
