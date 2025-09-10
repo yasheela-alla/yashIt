@@ -1,35 +1,36 @@
 export const techStacks = {
-    languages: [
+    programming: [
+        'Python',
         'C++',
-        'Java',
-        'JavaScript',
-        'HTML/CSS',
+        'Bash',
+        'Shell Scripting',
     ],
-    'cloud & devops': [
-        'Docker',
-        'Kubernetes',
-        'AWS',
+    'cloud platforms': [
+        'AWS (EC2, S3, VPC, IAM)',
+        'CloudWatch',
+        'Lambda',
+        'ECS',
+        'Azure basics',
+    ],
+    'devops & ci/cd': [
+        'Jenkins',
+        'GitHub Actions',
+        'GitLab CI',
+        'ArgoCD',
         'Git',
     ],
-    'networking & security': [
-        'Wireshark',
-        'Cisco Packet Tracer',
-        'Linux',
+    'infrastructure as code': [
+        'Terraform',
+        'AWS CloudFormation',
     ],
-    'databases & other': [
-        'MongoDB',
-        'MySQL',
-        'DSA',
+    containerization: [
+        'Docker',
+        'Kubernetes (EKS)',
     ],
-    'frameworks & tools': [
-        'React.js',
-        'Node.js',
-        'Tailwind CSS',
-        'Next.js',
-        'REST APIs',
-    ],
-    currentLearning: [
-        'web3/Blockchain',
-        'Machine Learning',
+    'monitoring & observability': [
+        'Prometheus',
+        'Grafana',
+        'ELK Stack',
+        'CloudWatch',
     ],
 }

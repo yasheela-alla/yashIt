@@ -1,91 +1,91 @@
 export const projects = [
     {
-        title: "AI Code Review Agent",
-        href: "https://github.com/yasheela-alla/ai-code-review",
+        title: "MERN Stack Application with Cloud DevSecOps Pipeline",
+        href: "https://github.com/yasheela-alla/mern-devsecops-pipeline",
         active: true,
         description:
-            "Currently building an AI-powered code review agent emulating senior engineer reasoning to detect bugs, suggest security best practices, and recommend improvements. Built with AI, Next.js, TypeScript, Tailwind CSS, Gemini, and Zod for robust code analysis.",
+            "Automated AWS provisioning with Terraform (38+ resources including EKS clusters, EC2 node groups). Built end-to-end CI/CD using Jenkins, SonarQube, Trivy, and Docker; pushed secure images to AWS ECR. Integrated GitOps with ArgoCD for continuous deployments across frontend, backend, and MongoDB. Configured observability with Prometheus, Grafana, and AWS CloudWatch for real-time system health.",
         technologies: [
-            "AI",
-            "Next.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Gemini",
-            "Zod",
+            "Terraform",
+            "AWS EKS",
+            "Jenkins",
+            "SonarQube",
+            "Trivy",
+            "Docker",
+            "ArgoCD",
+            "Prometheus",
+            "Grafana",
         ],
         links: [
             {
                 type: "GitHub",
-                href: "https://github.com/yasheela-alla/ai-code-review",
+                href: "https://github.com/yasheela-alla/mern-devsecops-pipeline",
             }
         ],
         image: "https://res.cloudinary.com/dnm3zl9dp/image/upload/v1736509280/b40jd0fxigcvpcvhxt2r.png",
     },
     {
-        title: "Blue-Green Deployment",
-        href: "https://github.com/yasheela-alla/blue-green-deployment",
+        title: "Real-Time Security Monitoring Prototype",
+        href: "https://github.com/yasheela-alla/security-monitoring",
         active: true,
-        description: "Engineered blue-Green Deployment strategy allowing zero-downtime releases and seamless rollbacks using Docker and Kubernetes on AWS. Configured AWS Elastic Load Balancer to dynamically route traffic between live and staging environments for enhanced security and resilience.",
+        description: "Implemented intrusion detection using Snort3 + Python for brute-force SMTP login attempts. Automated IP blocking via iptables; integrated service with systemd for resilience.",
         technologies: [
-            "Docker",
-            "Kubernetes", 
-            "AWS",
-            "CI/CD",
-            "Load Balancer",
-        ],
-        links: [
-            {
-                type: "GitHub",
-                href: "https://github.com/yasheela-alla/blue-green-deployment"
-            }
-        ],
-        image: "https://res.cloudinary.com/dnm3zl9dp/image/upload/v1725072293/project-management-placeholder.png"
-    },
-    {
-        title: "Intrusion Detection System",
-        href: "https://github.com/yasheela-alla/intrusion-detection",
-        active: true,
-        description: "Developed an automated intrusion detection and prevention system leveraging Snort3 to detect and block brute-force attacks on network services. Implemented Python scripts to parse Snort3 logs, identify multiple failed login attempts, and dynamically update iptables to block suspicious IP addresses.",
-        technologies: [
-            "Python",
             "Snort3",
+            "Python",
             "iptables",
+            "systemd",
             "Linux",
             "Network Security",
-            "Cybersecurity"
         ],
         links: [
             {
                 type: "GitHub",
-                href: "https://github.com/yasheela-alla/intrusion-detection"
+                href: "https://github.com/yasheela-alla/security-monitoring"
             }
         ],
         image: "https://res.cloudinary.com/dnm3zl9dp/image/upload/v1725072289/cartit-image-placeholder.png"
     },
     {
-        title: "kageLock: IP Protection Platform",
-        href: "https://kagelock.vercel.app",
+        title: "Campus Network Infrastructure Design",
+        href: "https://github.com/yasheela-alla/campus-network-design",
         active: true,
-        description:
-            "Prototyped an Ethereum-based decentralized application (DApp) for secure intellectual property registration and on-chain verification using blockchain, Solidity, IPFS, React, and Node.js. Selected among the best solutions for innovation and UI/UX excellence at IWD Women's Hackathon.",
+        description: "Designed scalable topology to improve efficiency and reduce latency. Deployed port security measures, preventing 95% of unauthorized access attempts.",
         technologies: [
-            "Blockchain",
-            "Solidity", 
-            "IPFS",
-            "React",
-            "Node.js",
-            "Ethereum",
+            "Network Design",
+            "Port Security",
+            "Cisco",
+            "VLAN",
+            "Network Security",
+            "Infrastructure",
         ],
         links: [
             {
-                type: "Website",
-                href: "https://kagelock.vercel.app/",
-            },
+                type: "GitHub",
+                href: "https://github.com/yasheela-alla/campus-network-design"
+            }
+        ],
+        image: "https://res.cloudinary.com/dnm3zl9dp/image/upload/v1725072293/project-management-placeholder.png"
+    },
+    {
+        title: "Fraud Detection Pipeline (ML)",
+        href: "https://github.com/yasheela-alla/fraud-detection-ml",
+        active: true,
+        description:
+            "Built automated preprocessing workflows, improving model training speed by 60%. Developed monitoring dashboards tracking 15+ metrics for real-time ML system health. Completed during Intrainz Internship.",
+        technologies: [
+            "Machine Learning",
+            "Python",
+            "Data Preprocessing",
+            "Monitoring Dashboards",
+            "Anomaly Detection",
+            "MLOps",
+        ],
+        links: [
             {
                 type: "GitHub",
-                href: "https://github.com/yasheela-alla/kageLock-u",
+                href: "https://github.com/yasheela-alla/fraud-detection-ml",
             }
         ],
         image: "https://res.cloudinary.com/dnm3zl9dp/image/upload/v1736509280/b40jd0fxigcvpcvhxt2r.png",
-    }
+    },
 ];

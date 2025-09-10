@@ -8,9 +8,10 @@ import { useWindowWidth } from '@react-hook/window-size'
 import { Sun, Moon } from 'lucide-react'
 
 const texts = [
-    'CODE .',
-    'SECURE .',
+    'BUILD .',
+    'AUTOMATE .',
     'DEPLOY .',
+    'SCALE .',
 ]
 
 const ProfileCard = () => {
@@ -75,7 +76,7 @@ const ProfileCard = () => {
                         <div className={`font-semibold text-lg -translate-y-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                             <h1>Yasheela Alla</h1>
                             <p className="secf font-light text-sm text-zinc-400">yasheela435@gmail.com</p>
-                        </div>
+                        <p className="secf font-light text-sm text-zinc-400">+91 8522066299 | yasheela435@gmail.com</p>
                     </div>
                 </div>
 
@@ -90,7 +91,7 @@ const ProfileCard = () => {
                         </div>
                     </div>
                     <p className={`text-[0.8rem] md:text-[0.9rem] ${theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'}`}>
-                        Hello , I'm Yasheela a 20 year old developer based in Vizag - India.
+                        Final-year B.Tech student specializing in Cloud and DevOps with strong foundations in Linux, AWS, CI/CD, Terraform, Docker, and container orchestration. Passionate about scalable infrastructure and automation.
                     </p>
                 </div>
 
@@ -98,7 +99,7 @@ const ProfileCard = () => {
                     <div className="flex flex-col text-[0.65rem] md:text-[0.8rem] items-end">
                         <div className={`flex items-center gap-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                             <div className={`h-[7px] w-[7px] rounded ${theme === 'dark' ? 'bg-[#56FF02]' : 'bg-[#00FF00]'}`} />{' '}
-                            Open for work!
+                            Open for Cloud DevOps Internship!
                         </div>
                         {dateTime}
                     </div>

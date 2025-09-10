@@ -178,7 +178,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             Experience & Achievements
           </h1>
           <p className="text-sm md:text-md leading-relaxed text-zinc-400">
-            From hackathons to open source contributions, I've been actively building and learning. Currently pursuing B.Tech in Electronics while working on full-stack development, blockchain projects, and cybersecurity solutions. Each challenge has been a stepping stone to grow my technical expertise and problem-solving skills.
+            Final-year B.Tech student in Electronics & Communication (CGPA: 8.50/10.0) at Vignan's Institute of Information Technology. From hackathons to internships and open source contributions, I've been actively building cloud infrastructure, DevOps pipelines, and automation solutions. Each experience has strengthened my expertise in scalable systems and modern development practices.
           </p>
         </motion.div>
 
