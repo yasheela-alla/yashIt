@@ -174,12 +174,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           transition={{ duration: 0.8 }}
           className="mb-8 md:mb-16"
         >
-          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 text-white">
-            Experience & Achievements
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+            Experience
           </h1>
-          <p className="text-sm md:text-md leading-relaxed text-zinc-400">
-            Final-year B.Tech student in Electronics & Communication (CGPA: 8.50/10.0) at Vignan's Institute of Information Technology. From hackathons to internships and open source contributions, I've been actively building cloud infrastructure, DevOps pipelines, and automation solutions. Each experience has strengthened my expertise in scalable systems and modern development practices.
-          </p>
         </motion.div>
 
         <div className="relative">

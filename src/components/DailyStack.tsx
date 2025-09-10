@@ -76,11 +76,11 @@ const DailyStack = () => {
 
                 <div className="space-y-3 w-full lg:w-auto">
                     <div>
-                        <h1 className={`secf lg:text-left text-5xl md:text-4xl font-bold ${theme === 'dark' ? "text-white" : "text-zinc-800"}`}>
+                        <h1 className={`secf lg:text-left text-4xl md:text-3xl font-bold ${theme === 'dark' ? "text-white" : "text-zinc-800"}`}>
                             DAILY <br />
                             <span className="font-light mainf">Tool</span>
                             <br />
-                            <span className="text-[4.1rem] md:text-5xl">STACK.</span>
+                            <span className="text-[3.5rem] md:text-4xl">STACK.</span>
                         </h1>
 
                         <div className='flex flex-col items-center md:block space-y-4 mt-1 md:mt-0'>

@@ -4,7 +4,7 @@ export const projects = [
         href: "https://github.com/yasheela-alla/mern-devsecops-pipeline",
         active: true,
         description:
-            "Automated AWS provisioning with Terraform (38+ resources including EKS clusters, EC2 node groups). Built end-to-end CI/CD using Jenkins, SonarQube, Trivy, and Docker; pushed secure images to AWS ECR. Integrated GitOps with ArgoCD for continuous deployments across frontend, backend, and MongoDB. Configured observability with Prometheus, Grafana, and AWS CloudWatch for real-time system health.",
+            "End-to-end DevSecOps pipeline with Terraform, Jenkins, and ArgoCD. Automated AWS infrastructure provisioning and GitOps deployments.",
         technologies: [
             "Terraform",
             "AWS EKS",
@@ -28,7 +28,7 @@ export const projects = [
         title: "Real-Time Security Monitoring Prototype",
         href: "https://github.com/yasheela-alla/security-monitoring",
         active: true,
-        description: "Implemented intrusion detection using Snort3 + Python for brute-force SMTP login attempts. Automated IP blocking via iptables; integrated service with systemd for resilience.",
+        description: "Real-time intrusion detection system using Snort3 and Python. Automated threat response with iptables integration.",
         technologies: [
             "Snort3",
             "Python",
@@ -49,7 +49,7 @@ export const projects = [
         title: "Campus Network Infrastructure Design",
         href: "https://github.com/yasheela-alla/campus-network-design",
         active: true,
-        description: "Designed scalable topology to improve efficiency and reduce latency. Deployed port security measures, preventing 95% of unauthorized access attempts.",
+        description: "Scalable network topology design with advanced security measures. Reduced latency and improved access control.",
         technologies: [
             "Network Design",
             "Port Security",
@@ -71,7 +71,7 @@ export const projects = [
         href: "https://github.com/yasheela-alla/fraud-detection-ml",
         active: true,
         description:
-            "Built automated preprocessing workflows, improving model training speed by 60%. Developed monitoring dashboards tracking 15+ metrics for real-time ML system health. Completed during Intrainz Internship.",
+            "ML preprocessing automation and monitoring dashboards. Improved training efficiency and real-time system health tracking.",
         technologies: [
             "Machine Learning",
             "Python",
