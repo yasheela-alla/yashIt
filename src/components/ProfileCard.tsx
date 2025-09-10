@@ -76,7 +76,8 @@ const ProfileCard = () => {
                         <div className={`font-semibold text-lg -translate-y-2 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                             <h1>Yasheela Alla</h1>
                             <p className="secf font-light text-sm text-zinc-400">yasheela435@gmail.com</p>
-                        <p className="secf font-light text-sm text-zinc-400">+91 8522066299 | yasheela435@gmail.com</p>
+                            <p className="secf font-light text-sm text-zinc-400">+91 8522066299 | yasheela435@gmail.com</p>
+                        </div>
                     </div>
                 </div>
 
